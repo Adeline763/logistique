@@ -16,35 +16,38 @@
       </div>
 
       <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
-
-      <h2>Section title</h2>
+      <h2>USER</h2>
       <div class="table-responsive small">
         <table class="table table-striped table-sm">
           <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
-              <th scope="col">Header</th>
+             <tr>
+              <th scope="col">Numero</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Adresse</th>
+              <th scope="col">Telephone</th>
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
             </tr>
           </thead>
           <tbody>
+            <?php  
+              $query = $pdo->prepare("SELECT * FROM `employe`");
+              $query->execute();
+              $data = $query->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($data as $value) {
+               ?>
             <tr>
-              <td>1,001</td>
-              <td>random</td>
-              <td>data</td>
-              <td>placeholder</td>
-              <td>text</td>
+              <td><?php echo $value['id']; ?></td>
+              <td><?php echo $value['nom_emp']; ?></td>
+              <td><?php echo $value['prenom_emp']; ?></td>
+              <td><?php echo $value['user_id']; ?></td>
+              <td><?php echo $value['adresse']; ?></td>
+              <td><?php echo $value['fonction']; ?></td>
+              <td><?php echo $value['email']; ?></td>
+              <td><?php echo $value['telephone']; ?></td>
             </tr>
-            <tr>
-              <td>1,002</td>
-              <td>placeholder</td>
-              <td>irrelevant</td>
-              <td>visual</td>
-              <td>layout</td>
-            </tr>
-          
+          <?php   } ?>
           </tbody>
         </table>
       </div>

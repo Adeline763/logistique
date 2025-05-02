@@ -2,7 +2,7 @@
 <?php require "header.php" ?>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Employe</h1>
+        <h1 class="h2">User</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -21,30 +21,27 @@
               <th scope="col">Numero</th>
               <th scope="col">Nom</th>
               <th scope="col">Prenom</th>
-              <th scope="col">User</th>
               <th scope="col">Adresse</th>
-              <th scope="col">Fonction</th>
-              <th scope="col">Email</th>
               <th scope="col">Telephone</th>
-             
+              <th scope="col">Email</th>
+              <th scope="col">Password</th>
             </tr>
           </thead>
           <tbody>
             <?php  
-              $query = $pdo->prepare("SELECT employe.id, nom,nom_emp,prenom_emp,employe.adresse,fonction,employe.email,telephone FROM `employe` join user on user_id= user.id");
+              $query = $pdo->prepare("SELECT * FROM `user`");
               $query->execute();
               $data = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($data as $value) {
                ?>
             <tr>
               <td><?php echo $value['id']; ?></td>
-              <td><?php echo $value['nom_emp']; ?></td>
-              <td><?php echo $value['prenom_emp']; ?></td>
               <td><?php echo $value['nom']; ?></td>
+              <td><?php echo $value['prenom']; ?></td>
               <td><?php echo $value['adresse']; ?></td>
-              <td><?php echo $value['fonction']; ?></td>
+              <td><?php echo $value['tel']; ?></td>
               <td><?php echo $value['email']; ?></td>
-              <td><?php echo $value['telephone']; ?></td>
+              <td><?php echo $value['password']; ?></td>
             </tr>
           <?php   } ?>
           </tbody>
