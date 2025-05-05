@@ -5,13 +5,10 @@
         <h1 class="h2">Employe</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter</button>
+            
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi" aria-hidden="true"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
+         
         </div>
       </div>
       <div class="table-responsive small">
@@ -26,12 +23,12 @@
               <th scope="col">Fonction</th>
               <th scope="col">Email</th>
               <th scope="col">Telephone</th>
-             
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <?php  
-              $query = $pdo->prepare("SELECT employe.id, nom,nom_emp,prenom_emp,employe.adresse,fonction,employe.email,telephone FROM `employe` join user on user_id= user.id");
+              $query = $pdo->prepare("SELECT employe.id, nom,nom_emp,prenom_emp,employe.adresse,fonction,employe.email,telephone FROM `employe` join user on user_id = user.id");
               $query->execute();
               $data = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($data as $value) {
@@ -45,6 +42,8 @@
               <td><?php echo $value['fonction']; ?></td>
               <td><?php echo $value['email']; ?></td>
               <td><?php echo $value['telephone']; ?></td>
+              <td><a type="button" class="btn btn-sm btn-outline-secondary" href="edition.php?edit_employe=<?php echo $value['id']; ?>">Editer</a>
+              <a type="button" class="btn btn-sm btn-outline-secondary" href="suppression.php?delete_employe=<?php echo $value['id']; ?>">Supprimer</a></td>
             </tr>
           <?php   } ?>
           </tbody>

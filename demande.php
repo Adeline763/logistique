@@ -5,13 +5,10 @@
         <h1 class="h2">Demande</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter</button>
+           
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi" aria-hidden="true"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
+         
         </div>
       </div>
       <div class="table-responsive small">
@@ -23,22 +20,25 @@
               <th scope="col">Employe</th>
               <th scope="col">Equipements</th>
               <th scope="col">Date</th>
+              <th>Action</th>
              
             </tr>
           </thead>
           <tbody>
             <?php  
-              $query = $pdo->prepare("SELECT * FROM `Demande");
+              $query = $pdo->prepare("SELECT demande.id,user.nom,nom_emp,nom_eq, demande.date from equipement join user on equipement.user_id = user.id join employe on employe.user_id = user.id  join demande on employe_id= employe.id");
               $query->execute();
               $data = $query->fetchAll(PDO::FETCH_ASSOC);
             foreach ($data as $value) {
                ?>
             <tr>
               <td><?php echo $value['id']; ?></td>
-              <td><?php echo $value['user_id']; ?></td>
-              <td><?php echo $value['employe_id']; ?></td>
-              <td><?php echo $value['equipement_id']; ?></td>
+              <td><?php echo $value['nom']; ?></td>
+              <td><?php echo $value['nom_emp']; ?></td>
+              <td><?php echo $value['nom_eq']; ?></td>
               <td><?php echo $value['date']; ?></td>
+               <td><a type="button" class="btn btn-sm btn-outline-secondary" href="edition.php?edit_demande=<?php echo $value['id']; ?>">Editer</a>
+              <a type="button" class="btn btn-sm btn-outline-secondary" href="suppression.php?delete_demande=<?php echo $value['id']; ?>">Supprimer</a></td>
             </tr>
           <?php   } ?>
           </tbody>

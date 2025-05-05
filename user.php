@@ -5,13 +5,10 @@
         <h1 class="h2">User</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <button type="button" class="btn btn-primary rounded-pill px-3">Ajouter</button>
+   
           </div>
-          <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle d-flex align-items-center gap-1">
-            <svg class="bi" aria-hidden="true"><use xlink:href="#calendar3"/></svg>
-            This week
-          </button>
+         
         </div>
       </div>
       <div class="table-responsive small">
@@ -25,6 +22,8 @@
               <th scope="col">Telephone</th>
               <th scope="col">Email</th>
               <th scope="col">Password</th>
+              <th>Action</th>
+
             </tr>
           </thead>
           <tbody>
@@ -42,6 +41,8 @@
               <td><?php echo $value['tel']; ?></td>
               <td><?php echo $value['email']; ?></td>
               <td><?php echo $value['password']; ?></td>
+              <td><a type="button" class="btn btn-secondary rounded-pill px-3" href="edition.php?edit_user=<?php echo $value['id']; ?>">Editer</a>
+              <a type="button" class="btn btn-danger rounded-pill px-3" href="suppression.php?delete_user=<?php echo $value['id']; ?>">Supprimer</a></td>
             </tr>
           <?php   } ?>
           </tbody>
