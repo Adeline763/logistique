@@ -5,7 +5,7 @@
         <h1 class="h2">Employe</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Ajouter</button>
+            <a type="button" class="btn btn-success rounded-pill px-3" href="add_employe.php">Ajouter</a>
             
           </div>
          
@@ -42,8 +42,8 @@
               <td><?php echo $value['fonction']; ?></td>
               <td><?php echo $value['email']; ?></td>
               <td><?php echo $value['telephone']; ?></td>
-              <td><a type="button" class="btn btn-sm btn-outline-secondary" href="edition.php?edit_employe=<?php echo $value['id']; ?>">Editer</a>
-              <a type="button" class="btn btn-sm btn-outline-secondary" href="suppression.php?delete_employe=<?php echo $value['id']; ?>">Supprimer</a></td>
+              <td><a type="button" class="btn btn-sm btn-outline-primary" href="edit_employe.php?edit_employe=<?php echo $value['id']; ?>">Editer</a>
+              <a type="button" class="btn btn-sm btn-outline-danger" href="suppression.php?delete_employe=<?php echo $value['id']; ?>">Supprimer</a></td>
             </tr>
           <?php   } ?>
           </tbody>

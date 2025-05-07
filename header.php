@@ -1,5 +1,8 @@
-<?php require "config/database.php" ?>
-<!doctype html>
+<?php 
+ob_start();
+require_once "config/database.php"; ?>
+
+<!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">
   <head>
     <meta charset="utf-8">
