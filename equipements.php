@@ -32,7 +32,7 @@
               <td><?php echo $value['nom_eq']; ?></td>
                <td><?php echo $value['nom']; ?></td>
               <td><?php echo $value['date']; ?></td>
-               <td><a type="button" class="btn btn-sm btn-outline-primary" href="edition.php?edit_equipement=<?php echo $value['id']; ?>">Editer</a>
+               <td><a type="button" class="btn btn-sm btn-outline-primary" href="edit_equipement.php?id=<?php echo $value['id']; ?>">Editer</a>
               <a type="button" class="btn btn-sm btn-outline-danger" href="suppression.php?delete_equipement=<?php echo $value['id']; ?>">Supprimer</a></td>
             </tr>
           <?php   } ?>
