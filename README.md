@@ -59,8 +59,8 @@ Cette application web, développée en PHP avec une interface Bootstrap, permet 
 
 ## Auteurs
 
-- Le développeur-Encadreur : [Ir. Ahmad](https://github.com/Ahmadfils)
-- Le développeur etudiant 1 : [Ms Adeline](https://github.com/Adeline763)
-- Le développeur etudiant 2 : [Mr. Kelvin](https://github.com/Kelvin969)
+- Le développeur-encadreur : [Ir. Ahmad](https://github.com/Ahmadfils)
+- Le développeur-étudiant : [Ms Adeline](https://github.com/Adeline763)
+- Le développeur-étudiant : [Mr. Kelvin](https://github.com/Kelvin969)
 
 
