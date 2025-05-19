@@ -1,5 +1,9 @@
 <?php 
 ob_start();
+session_start();
+if (!isset($_SESSION['user']) && empty($_SESSION['user'])) {
+  header("Location:login.php");
+}
 require_once "config/database.php"; ?>
 
 <!DOCTYPE html>
@@ -301,7 +305,7 @@ require_once "config/database.php"; ?>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex align-items-center gap-2" href="#">
+              <a class="nav-link d-flex align-items-center gap-2" href="logout.php">
                 <svg class="bi" aria-hidden="true"><use xlink:href="#door-closed"/></svg>
                 Sign out
               </a>

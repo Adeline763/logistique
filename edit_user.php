@@ -4,6 +4,7 @@
 if(isset($_GET['id'])) {
  $query = $pdo->prepare("SELECT * FROM `user` WHERE id = ?");
  $query->execute(array($_GET['id']));
+ 
  $data = $query->fetchAll(PDO::FETCH_ASSOC);
  foreach ($data as $value) {
 

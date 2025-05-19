@@ -67,7 +67,7 @@ $query->execute(array($_POST['nom'], $_POST['prenom'], $_POST['utilisateur'], $_
     <span class="input-group-text">@</span>
 
     <select class="form-control" name="utilisateur"> 
-       <option value="0" s>-- Choisir un utilisateur --</option>
+       <option value="0">-- Choisir un utilisateur --</option>
       <?php   $query = $pdo->prepare("SELECT * FROM `user`");
               $query->execute();
               $data = $query->fetchAll(PDO::FETCH_ASSOC);
