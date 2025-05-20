@@ -11,13 +11,12 @@
          foreach ($data as $value) {
            $password = $value['password'];
            $email = $value['email'];
+           if($password != $_POST['password']){
+            echo "Mot de passe incorrect!";
+           }else{
+             $_SESSION['user'] = $value;
+             header("Location:dashboard.php");
          }
-
-         if($password != $_POST['password']){
-          echo "Mot de passe incorrect!";
-         }else{
-          $_SESSION['user'] = $value;
-          header("Location:dashboard.php");
 
          }
        }
